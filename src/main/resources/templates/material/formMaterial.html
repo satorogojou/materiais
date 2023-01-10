@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Material</title>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<link rel="stylesheet" href="style/styleCss.css"/>
+
+<body>
+
+
+	<header>
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Adicionar Material Esportivo:</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/materiais" class="waves-effect waves-light btn"><i
+							class="material-icons left">format_list_bulleted</i>Lista dos
+							materiais</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+
+	<p th:if="${mensagem}" th:text="${mensagem}"></p>
+
+	<form class="container formMaterial" action="" method="post">
+
+		Matrícula: <input type="number" value="" name="matricula">
+		Material: <input type="text" value="" name="nome"> Quantidade:
+		<input type="number" value="" name="quantidade"> Data: <input
+			type="date" value="" name="data"> Horário de Empréstimo: <input
+			type="time" value="" name="horarioemp"> Horário de Devolução:
+		<input type="time" value="" name="horariodev">
+
+		<button class="waves-effect waves-light btn" type="submit">
+			Salvar</button>
+
+	</form>
+
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>

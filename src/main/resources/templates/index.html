@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Materiais</title>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet"
+	href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<link rel="stylesheet" href="style/styleCss.css"/>
+
+<body>
+
+	<header>
+			<nav>
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo">Lista de Empréstimos</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/salvarMaterial" class="waves-effect waves-light btn">
+			<i class="material-icons left">add_circle</i>Adicionar Material</a></li> 
+		      </ul>
+		    </div>
+		  </nav>
+	</header>
+	<table>
+		<thead>
+			<tr>
+				<th>Matrícula</th>
+				<th>Material</th>
+				<th>Quantidade</th>
+				<th>Data</th>
+				<th>Horário de empréstimo</th>
+				<th>Horário de Devolução</th>
+				<th>Devolvido</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="m : ${materiais}">
+				<td><a class="waves-effect waves-light btn-small"  th:href="${(#mvc.url('MC#detalhesMaterial').arg(0, m.codigo)).build()}"><span th:text="${m.matricula}"></span></a></td>
+				<td><span th:text="${m.nome}"></span></td>
+				<td><span th:text="${m.quantidade}"></span></td>
+				<td><span th:text="${#temporals.format(m.data)}"></span></td>
+				<td><span th:text="${m.horarioemp}"></span></td>
+				<td><span th:text="${m.horariodev}"></span></td>
+				<td><a th:href="${(#mvc.url('MC#concluirMaterial').arg(0, m.codigo)).build()}"><i class="material-icons left">check</i>
+				<span th:text="${m.matricula}"></span></a></td>
+			</tr>
+
+		</table>
+	
+	
+	
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>
